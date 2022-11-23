@@ -1,0 +1,44 @@
+# Als erstes definieren wir die host-adresse
+@hosturl = https://localhost:5001
+
+# Dies ist ein GET Request, der alle ToDos holt
+GET {{hosturl}}/api/todos
+
+###
+
+# Nur ein ToDo holen mit korrekter Id
+GET {{hosturl}}/api/todos/1b6ad3b1-1971-423a-9912-0e58b96aca4f
+
+###
+
+# Nur ein ToDo holen mit nicht vorhandenen Id
+GET {{hosturl}}/api/todos/1b6ad3b1-1971-423a-9912-0e58b96aca4e
+
+###
+
+# Ein neues ToDo erstellen
+POST {{hosturl}}/api/todos
+content-type: application/json
+
+{
+    "taskDescription": "Ein neues ToDo"
+}
+
+###
+
+# Ein ToDo updaten
+Put {{hosturl}}/api/todos/1b6ad3b1-1971-423a-9912-0e58b96aca4f
+content-type: application/json
+
+{
+    "isCompleted": true,
+    "taskDescription": "Neuer Text für das ToDo"
+}
+
+###
+
+# Ein ToDo löschen
+Delete {{hosturl}}/api/todos/96c0df15-1a36-4ddc-a848-3a8a8bd1d430
+
+###
+
