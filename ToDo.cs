@@ -1,5 +1,6 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
-using System;
+﻿using System;
+using Azure;
+using Azure.Data.Tables;
 
 namespace Functions
 {
@@ -22,11 +23,16 @@ namespace Functions
         public bool IsCompleted { get; set; }
     }
 
-    public class TodoTableEntity : TableEntity
+    public class TodoTableEntity : ITableEntity
     {
         public DateTime CreatedTime { get; set; }
         public string TaskDescription { get; set; }
         public bool IsCompleted { get; set; }
+
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public DateTimeOffset? Timestamp { get; set; }
+        public ETag ETag { get; set; }
     }
 
     public static class Mappings

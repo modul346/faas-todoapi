@@ -1,5 +1,5 @@
 # Als erstes definieren wir die host-adresse
-@hosturl = https://localhost:5001
+@hosturl = http://localhost:7071
 
 # Dies ist ein GET Request, der alle ToDos holt
 GET {{hosturl}}/api/todos
@@ -21,7 +21,7 @@ POST {{hosturl}}/api/todos
 content-type: application/json
 
 {
-    "taskDescription": "Ein neues ToDo"
+    "taskDescription": "Ein neues ToDo  33"
 }
 
 ###
